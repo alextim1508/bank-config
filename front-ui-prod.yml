@@ -1,0 +1,17 @@
+server:
+  port: 8085
+  forward-headers-strategy: native
+
+spring:
+  application:
+    name: front-ui-service
+
+  security:
+    oauth2:
+      client:
+        registration:
+          bank:
+            client-id: front-client
+            client-secret: iAwljpTepiIUNtf3GsfcPWv42VG4oSzX
+
+

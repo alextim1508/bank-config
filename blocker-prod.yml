@@ -1,0 +1,47 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: blocker-service
+
+  datasource:
+    url: jdbc:postgresql://suspicious-operation-db:5432/suspicious-operation-db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/master.yml
+    url: jdbc:postgresql://suspicious-operation-db:5432/suspicious-operation-db
+    user: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  data:
+    redis:
+      port: 6379
+      host: operation-count-db
+
+  security:
+    oauth2:
+      client:
+        registration:
+          bank:
+            client-id: blocker-client
+            client-secret: OOwYJIcXl9Yf7HbbCdygEt3JmlBJrMYo
+
+blocker:
+  max-amount: 10000
+  max-operations: 5
+  time-window-minutes: 5
+  night:
+    start-hour: 23
+    end-hour: 6
+

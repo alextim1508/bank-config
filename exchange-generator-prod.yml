@@ -1,0 +1,15 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: exchange-generator-service
+
+  security:
+    oauth2:
+      client:
+        registration:
+          bank:
+            token-url: http://sso:8082/realms/bank/protocol/openid-connect/token
+            client-id: exchange-generator-client
+            client-secret: HlsMefVUQWzRUZac1sxSCOhHSRM46SnS
